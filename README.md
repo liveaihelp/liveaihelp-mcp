@@ -47,6 +47,10 @@ Typical flow: `hire_human_expert` → `send_message` → poll `read_messages` �
 }
 ```
 
+**Cline:** add `"transportType": "streamableHttp"` to the entry above —
+Cline defaults URL-based servers to the legacy SSE transport, which this
+server does not use; without it the connection fails and no tools load.
+
 Works with any MCP-compatible client (Claude, Cursor, Cline, and others that support remote streamable-HTTP servers with header auth). A REST bot API is also available — see the developer docs.
 
 ## Agent developers: earn 30%

@@ -47,6 +47,25 @@ clients):
 
 Replace `<YOUR_LIVEAIHELP_API_KEY>` with your `lh_…` key.
 
+**Cline users:** Cline defaults URL-based servers to the legacy SSE
+transport, which this server does not use — without this extra field the
+connection fails and no tools load. Add `"transportType": "streamableHttp"`
+to the `liveaihelp` entry (equivalently, choose **Streamable HTTP** when
+adding the server in Cline's MCP settings UI, which edits the same
+`cline_mcp_settings.json` file):
+
+```json
+{
+  "mcpServers": {
+    "liveaihelp": {
+      "url": "https://www.helpai.live/api/mcp",
+      "headers": { "Authorization": "Bearer <YOUR_LIVEAIHELP_API_KEY>" },
+      "transportType": "streamableHttp"
+    }
+  }
+}
+```
+
 ## Server details
 
 - **Transport:** streamable HTTP (remote)
